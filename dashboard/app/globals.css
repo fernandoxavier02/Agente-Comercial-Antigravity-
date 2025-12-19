@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-obsidian-900 text-platinum-50;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-obsidian-800/80 backdrop-blur-md border border-white/5 shadow-xl;
+  }
+
+  .text-gold-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500;
+  }
+
+  .border-gold-subtle {
+    @apply border border-gold-500/20;
+  }
+}

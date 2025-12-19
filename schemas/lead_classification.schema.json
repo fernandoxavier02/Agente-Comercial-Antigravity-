@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/lead_classification.schema.json",
+  "title": "LeadClassification",
+  "type": "object",
+  "required": [
+    "lead_id",
+    "source",
+    "source_url",
+    "author_handle",
+    "timestamp",
+    "text_excerpt",
+    "pain_point",
+    "intent_stage",
+    "maturity",
+    "scores",
+    "evidence",
+    "risk_flags",
+    "version"
+  ],
+  "properties": {
+    "lead_id": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string",
+      "description": "Fonte (ex.: linkedin_public, reddit, x, forum, web)"
+    },
+    "source_url": {
+      "type": "string"
+    },
+    "author_handle": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "text_excerpt": {
+      "type": "string",
+      "maxLength": 1500
+    },
+    "pain_point": {
+      "type": "object",
+      "required": [
+        "label",
+        "confidence"
+      ],
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "intent_stage": {
+      "type": "object",
+      "required": [
+        "label",
+        "confidence"
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "discovery",
+            "consideration",
+            "decision"
+          ]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "maturity": {
+      "type": "object",
+      "required": [
+        "label",
+        "score"
+      ],
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "beginner",
+            "intermediate",
+            "advanced"
+          ]
+        },
+        "score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "scores": {
+      "type": "object",
+      "required": [
+        "fit",
+        "intent",
+        "urgency",
+        "risk",
+        "lead_score",
+        "evidence_quality"
+      ],
+      "properties": {
+        "fit": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "intent": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "urgency": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "risk": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "lead_score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "evidence_quality": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "text",
+          "url"
+        ],
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxLength": 400
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "risk_flags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "minor_possible",
+          "medical_sensitive",
+          "self_harm",
+          "harassment",
+          "spam_risk",
+          "tos_risk"
+        ]
+      }
+    },
+    "version": {
+      "type": "string",
+      "description": "Versão do classificador/prompt"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/feedback_event.schema.json",
+  "title": "FeedbackEvent",
+  "type": "object",
+  "required": [
+    "lead_id",
+    "event_type",
+    "value",
+    "timestamp"
+  ],
+  "properties": {
+    "lead_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "lead_approved",
+        "lead_rejected",
+        "message_used",
+        "message_edited",
+        "reply_received",
+        "appointment_booked",
+        "opt_out"
+      ]
+    },
+    "value": {
+      "type": [
+        "string",
+        "number",
+        "boolean",
+        "object",
+        "null"
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "notes": {
+      "type": "string",
+      "maxLength": 1000
+    }
+  },
+  "additionalProperties": false
+}

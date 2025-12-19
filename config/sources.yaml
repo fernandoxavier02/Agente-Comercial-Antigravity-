@@ -1,0 +1,14 @@
+# Configuração de fontes (exemplos). No MVP, comece com 1–2 fontes e regras claras.
+sources:
+  - name: web_forum
+    enabled: true
+    mode: mock   # troque para "connector" quando implementar
+    topics:
+      - melasma
+      - flacidez
+      - olheiras
+      - bioestimulador
+      - "gordura localizada"
+    guardrails:
+      tos_required: true
+      store_full_text: false

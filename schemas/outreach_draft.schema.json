@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/outreach_draft.schema.json",
+  "title": "OutreachDraft",
+  "type": "object",
+  "required": [
+    "lead_id",
+    "approach",
+    "drafts",
+    "triage_questions",
+    "version"
+  ],
+  "properties": {
+    "lead_id": {
+      "type": "string"
+    },
+    "approach": {
+      "type": "object",
+      "required": [
+        "style",
+        "cta",
+        "do_not"
+      ],
+      "properties": {
+        "style": {
+          "type": "string",
+          "enum": [
+            "educational",
+            "empathetic",
+            "authority_medical",
+            "conversational"
+          ]
+        },
+        "cta": {
+          "type": "string",
+          "enum": [
+            "send_info",
+            "invite_evaluation",
+            "ask_question"
+          ]
+        },
+        "do_not": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "drafts": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "items": {
+        "type": "string",
+        "maxLength": 800
+      }
+    },
+    "triage_questions": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 8,
+      "items": {
+        "type": "string",
+        "maxLength": 200
+      }
+    },
+    "version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

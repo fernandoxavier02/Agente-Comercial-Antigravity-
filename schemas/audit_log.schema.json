@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/audit_log.schema.json",
+  "title": "AuditLog",
+  "type": "object",
+  "required": [
+    "event_id",
+    "event",
+    "lead_id",
+    "actor",
+    "timestamp",
+    "model",
+    "prompt_version"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string"
+    },
+    "event": {
+      "type": "string"
+    },
+    "lead_id": {
+      "type": "string"
+    },
+    "actor": {
+      "type": "string",
+      "description": "system|user:<id>|integration:<name>"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "model": {
+      "type": "string"
+    },
+    "prompt_version": {
+      "type": "string"
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}
