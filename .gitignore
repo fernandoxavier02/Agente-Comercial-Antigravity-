@@ -1,0 +1,28 @@
+# Root
+node_modules/
+/node_modules
+*.log
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.production
+backend/.data/
+backend/url_database.json
+
+# JavaScript / Node
+dashboard/node_modules/
+dashboard/.next/
+dashboard/.env.local
+dashboard/out/
+dashboard/build/
+dashboard/dist/
+.npm
+.yarn
+
+# Misc
+backend_url.txt
+*.ps1
